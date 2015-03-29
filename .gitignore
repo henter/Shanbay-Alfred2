@@ -1,0 +1,7 @@
+*.bak
+*.pyc
+*.log
+*~
+.DS_Store
+.idea/
+._.DS_Store

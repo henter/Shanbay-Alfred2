@@ -7,7 +7,7 @@
 
 此workflow需要本地python安装 [requests](http://docs.python-requests.org/en/latest/) 这个模块
 
-	pip install requests
+	pip install requests[security]
 
 ### 安装
 下载`Shanbay_Alfred2_Workflow.alfredworkflow`文件

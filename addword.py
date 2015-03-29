@@ -3,11 +3,9 @@
 #! 强制默认编码为utf-8
 import sys
 reload(sys)
-sys.setdefaultencoding('utf8') 
+sys.setdefaultencoding('utf8')
 
 import urllib, urllib2, json, time
-from pprint import pprint
-from pdb import set_trace
 import requests
 import copy
 from config import host,service, addword, loginurl, username, pwd
@@ -23,19 +21,14 @@ class ShanbayDict():
         self.service = service
         self.addword = addword
 
-        # 从字典中安全的取出值
-        self.save_get_dict_value = lambda d, k: d[k] if d.has_key(k) else ''
-
     def login(self):
         headers = {
-        'Host': host,
-        'User-Agent': (' Mozilla/5.0 (Windows NT 6.2; rv:23.0) Gecko'
-                       + '/20100101 Firefox/23.0'),
+            'Host': host,
+            'User-Agent': (' Mozilla/5.0 (Windows NT 6.2; rv:23.0) Gecko /20100101 Firefox/23.0'),
         }
 
         # 首先访问一次网站，获取 cookies
-        r_first_vist = requests.get(loginurl, headers=headers,
-                                    stream=True)
+        r_first_vist = requests.get(loginurl, headers=headers, stream=True)
         # 判断 HTTP 状态码是否是 200
         if r_first_vist.status_code != requests.codes.ok:
             raise LoginException
@@ -52,7 +45,6 @@ class ShanbayDict():
             'Refere': loginurl,
             'Content-Type': 'application/x-www-form-urlencoded',
         })
-        cookies_post = cookies_first_vist
         # post 提交的内容
         data_post = {
             'csrfmiddlewaretoken': token,  # csrf
@@ -65,10 +57,7 @@ class ShanbayDict():
         }
 
         # 提交登录表单同时提交第一次访问网站时生成的 cookies
-        r_login = requests.post(url_post, headers=headers_post,
-                                cookies=cookies_post, data=data_post,
-                                allow_redirects=False, stream=True)
-        
+        r_login = requests.post(url_post, headers=headers_post, cookies=cookies_first_vist, data=data_post, allow_redirects=False, stream=True)
         self.cookies = r_login.cookies
          # print r_login.url
         if r_login.status_code == requests.codes.found:
@@ -92,7 +81,6 @@ class ShanbayDict():
         res = json.loads(r.text)
         #通知内容会换行，这里直接返回全部字符
         print '"'+word+'" 添加成功' if res['id'] else 0
-
 
 
 if __name__ == '__main__':
