@@ -1,35 +1,55 @@
 #Shanbay-Alfred2-Workflow
 
-扇贝网的单词查询workflow，用于Alfred2
+扇贝网Alfred2 workflow，主要用于单词查询、添加单词到词库、例句查询、收藏例句等。
 
 
-### 要求
-
-此workflow需要本地python安装 [requests](http://docs.python-requests.org/en/latest/) 这个模块
-
-	pip install requests[security]
-
-### 安装
-下载`Shanbay_Alfred2_Workflow.alfredworkflow`文件
+## 安装
+下载[`Shanbay.alfredworkflow`](https://github.com/henter/Shanbay-Alfred2/blob/master/Shanbay.alfredworkflow?raw=true)文件
 
 双击文件导入即可。
 
-如果要用添加到词库功能，需要修改文件配置，继续操作如下：
+如果要用添加到词库或查例句等功能，需要授权：
 
-双击右侧的`sb`那个方块（`Script Filter`）,点击窗口内的`Open workflow folder`打开文件夹
+输入 `sbe test`，回车跳转到扇贝授权页面，点授权后跳转。
 
-修改`config.py`内的`username`和`pw`为你自己的扇贝网账号密码，保存即可。
+复制授权码
 
-### 使用
-调出Alfred2，输入`sb love`
-等待查询结果出现
+调出Alfred2，输入 `sbcode `，粘贴授权码，回车。
 
-如果要添加当前单词到词库，直接敲回车
+![sbcode](https://sbalfred.sinaapp.com/static/sbcode.png)
 
-如果要查看单词页面
-按住`command`敲回车
+授权完成~
 
-### 其它
-历史提交记录已清除（涉及到账号密码）
+注：授权有效期为一个月，过期需重新授权。
 
-感谢 [iLeoDo](https://github.com/iLeoDo) 童鞋的更新。
+## 使用
+
+###查单词
+
+`sb love`
+
+![sb](https://sbalfred.sinaapp.com/static/sb.png)
+
+### 添加到单词库
+
+	直接敲回车，将单词添加到单词库 
+	或按住`command`敲回车打开单词网页
+
+![sb_add](https://sbalfred.sinaapp.com/static/sb_add.png)
+
+### 查例句
+
+`sbe love`
+
+![sbe](https://sbalfred.sinaapp.com/static/sbe.png)
+
+### 收藏例句
+	
+	直接敲回车，收藏该例句
+
+![sbe_add](https://sbalfred.sinaapp.com/static/sbe_add.png)
+
+
+## 其它
+
+欢迎提BUG
