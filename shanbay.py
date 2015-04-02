@@ -10,7 +10,6 @@ import urllib
 import urllib2
 import json
 import time
-import re
 from alfred.feedback import Feedback
 
 token_file = os.path.abspath('token')
@@ -56,8 +55,6 @@ class ShanbayDict():
                 for type in voc['en_definitions']:
                     for line in voc['en_definitions'][type]:
                         title = type+', '+line
-                        if not title:
-                            continue
                         self.addItem(title = title, arg = word)
         else:
             self.addItem(title='no results')
