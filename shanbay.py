@@ -100,7 +100,7 @@ class ShanbayDict():
         return True
 
     def get_token(self, code):
-        url = 'https://sbalfred.sinaapp.com/token'
+        url = 'http://sbalfred.sinaapp.com/token'
         data = urllib.urlencode({'code':code})
         req = urllib2.Request(url, data)
 
