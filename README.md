@@ -1,4 +1,4 @@
-#Shanbay-Alfred2-Workflow
+# Shanbay-Alfred2-Workflow
 
 扇贝网Alfred2 workflow，主要用于单词查询、添加单词到词库、例句查询、收藏例句等。
 
@@ -24,7 +24,7 @@
 
 ## 使用
 
-###查单词
+### 查单词
 
 `sb love`
 
